@@ -7,7 +7,7 @@
 #include "TypesABC.h"
 #include "convert.h"
 
-#define FMT_HEADER_ONLY
+//#define FMT_HEADER_ONLY
 #include "fmt/format.h"
 
 //转换二进制文件为文本
