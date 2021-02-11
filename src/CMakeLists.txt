@@ -24,7 +24,7 @@ file(GLOB SRC_LIST
     ../others/Hanz2Piny.cpp
     ../others/zip.c)
 
-set(LINK_LIBRARIES SDL2 SDL2_ttf SDL2_image SDL2_mixer SDL2main lua5.3 opencc sqlite3 fmt)
+set(LINK_LIBRARIES SDL2 SDL2_ttf SDL2_image SDL2_mixer SDL2main lua5.3 opencc sqlite3 fmt freetype jpeg9d libpng16 zlibstatic iconv)
 if (APPLE)
     set(LINK_LIBRARIES ${LINK_LIBRARIES} iconv)
 endif ()
