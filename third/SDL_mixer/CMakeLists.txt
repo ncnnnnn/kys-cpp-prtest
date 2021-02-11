@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 2.8.11)
 project(SDL_mixer C)
-
-
+include_directories(include ../installw/include)
+include_directories(include ../installw/include/SDL2)
+link_directories("../installw/lib")
+set(ANDROID ON)
 if (ANDROID)
 
     # FIXME: missing CMakeLists.txt for MPG123
@@ -16,7 +18,7 @@ if (ANDROID)
     include_directories(include src src/codecs)
 
     add_library(SDL2_mixer SHARED)
-
+    target_compile_options(SDL2_mixer PRIVATE -DMUSIC_WAV)
     target_sources(SDL2_mixer PRIVATE
             src/effect_position.c src/effects_internal.c src/effect_stereoreverse.c
             src/mixer.c src/music.c src/utils.c
