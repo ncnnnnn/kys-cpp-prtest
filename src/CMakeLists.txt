@@ -4,6 +4,8 @@
 if (MSVC)
     # 设置 msvc 输入代码编码格式为 utf-8
     set(CMAKE_CXX_FLAGS /source-charset:utf-8)
+    add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4819")
 endif()
 set(CMAKE_VERBOSE_MAKEFILE on)
@@ -12,11 +14,11 @@ set(CMAKE_CXX_FLAGS "-O3 -std=c++14 -pthread -DNDEBUG -DUSE_SDL_MIXER_AUDIO")
 
 # include_directories(../include . ../common ../others ../local/include)
 # link_directories(. ../lib)
-
+include_directories(include ../common)
 file(GLOB SRC_LIST
     ./*.cpp
-    ../../common/convert.cpp
-    ../../common/File.cpp
+    ../common/convert.cpp
+    ../common/File.cpp
     ../others/Hanz2Piny.cpp
     ../others/zip.c)
 

@@ -14,8 +14,6 @@ src/CMakeFiles/*
 *.aps
 Win32/
 x64/
-common/*
-common
 include/*
 build
 installw

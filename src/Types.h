@@ -30,8 +30,8 @@ struct MapSquare
         line_ = x;
     }
 
-    T& data(int x, int y) { return data_[x + line_ * y]; }
-    T& data(int x) { return data_[x]; }
+    T &data(int x, int y) { return data_[x + line_ * y]; }
+    T &data(int x) { return data_[x]; }
     int size() { return line_; }
     int squareSize() { return line_ * line_; }
     void setAll(T v)
@@ -41,14 +41,14 @@ struct MapSquare
             data_[i] = v;
         }
     }
-    void copyTo(MapSquare* ms)
+    void copyTo(MapSquare *ms)
     {
         for (int i = 0; i < squareSize(); i++)
         {
             ms->data_[i] = data_[i];
         }
     }
-    void copyFrom(MapSquare* ms)
+    void copyFrom(MapSquare *ms)
     {
         for (int i = 0; i < squareSize(); i++)
         {
@@ -57,7 +57,7 @@ struct MapSquare
     }
 
 private:
-    T* data_ = nullptr;
+    T *data_ = nullptr;
     int line_ = 0;
 };
 
@@ -76,9 +76,9 @@ enum
     SUBMAP_COORD_COUNT = 64,
     SUBMAP_LAYER_COUNT = 6,
     MAINMAP_COORD_COUNT = 480,
-    SUBMAP_EVENT_COUNT = 200,    //单场景最大事件数
-    ITEM_IN_BAG_COUNT = 200,     //最大物品数
-    TEAMMATE_COUNT = 6,          //最大队伍人员数
+    SUBMAP_EVENT_COUNT = 200, //单场景最大事件数
+    ITEM_IN_BAG_COUNT = 200,  //最大物品数
+    TEAMMATE_COUNT = 6,       //最大队伍人员数
 };
 
 enum
@@ -104,13 +104,13 @@ public:
     int ID;
     int HeadID, IncLife, UnUse;
     char Name[20], Nick[20];
-    int Sexual;    //性别 0-男 1 女 2 其他
+    int Sexual; //性别 0-男 1 女 2 其他
     int Level;
     int Exp;
     int HP, MaxHP, Hurt, Poison, PhysicalPower;
     int ExpForMakeItem;
     int Equip0, Equip1;
-    int Frame[15];    //动作帧数，改为不在此处保存，故实际无用，另外延迟帧数对效果几乎无影响，废弃
+    int Frame[15]; //动作帧数，改为不在此处保存，故实际无用，另外延迟帧数对效果几乎无影响，废弃
     int MPType, MP, MaxMP;
     int Attack, Speed, Defence, Medicine, UsePoison, Detoxification, AntiPoison, Fist, Sword, Knife, Unusual, HiddenWeapon;
     int Knowledge, Morality, AttackWithPoison, AttackTwice, Fame, IQ;
@@ -119,7 +119,6 @@ public:
     int MagicID[ROLE_MAGIC_COUNT], MagicLevel[ROLE_MAGIC_COUNT];
     int TakingItem[ROLE_TAKING_ITEM_COUNT], TakingItemCount[ROLE_TAKING_ITEM_COUNT];
 };
-
 //实际的角色数据，基类之外的通常是战斗属性
 struct Role : public RoleSave
 {
@@ -128,10 +127,10 @@ public:
     int FaceTowards, Dead, Step;
     int Pic, BattleSpeed;
     int ExpGot, Auto;
-    int FightFrame[5] = { -1 };
+    int FightFrame[5] = {-1};
     int FightingFrame;
     int Moved, Acted;
-    int ActTeam;    //选择行动阵营 0-我方，1-非我方，画效果层时有效
+    int ActTeam; //选择行动阵营 0-我方，1-非我方，画效果层时有效
 
     int SelectedMagic;
 
@@ -169,8 +168,8 @@ private:
     int prevX_, prevY_;
 
 public:
-    MapSquare<Role*>* position_layer_ = nullptr;
-    void setRolePositionLayer(MapSquare<Role*>* l) { position_layer_ = l; }
+    MapSquare<Role *> *position_layer_ = nullptr;
+    void setRolePositionLayer(MapSquare<Role *> *l) { position_layer_ = l; }
     void setPosition(int x, int y);
     void setPositionOnly(int x, int y)
     {
@@ -191,18 +190,18 @@ public:
     int getRoleMagicLevelIndex(int i);
 
     int getLearnedMagicCount();
-    int getMagicLevelIndex(Magic* magic);
+    int getMagicLevelIndex(Magic *magic);
     int getMagicLevelIndex(int magic_id);
-    int getMagicOfRoleIndex(Magic* magic);
+    int getMagicOfRoleIndex(Magic *magic);
 
     void limit();
 
-    int learnMagic(Magic* magic);
+    int learnMagic(Magic *magic);
     int learnMagic(int magic_id);
 
     bool isAuto() { return Auto != 0 || Team != 0; }
 
-    void addShowString(std::string text, BP_Color color = { 255, 255, 255, 255 }, int size = 28) { Show.ShowStrings.push_back({ text, color, size }); }
+    void addShowString(std::string text, BP_Color color = {255, 255, 255, 255}, int size = 28) { Show.ShowStrings.push_back({text, color, size}); }
     void clearShowStrings() { Show.ShowStrings.clear(); }
 
     int movedDistance() { return abs(X_ - prevX_) + abs(Y_ - prevY_); }
@@ -211,8 +210,8 @@ public:
     int AI_Action = 0;
     int AI_MoveX, AI_MoveY;
     int AI_ActionX, AI_ActionY;
-    Magic* AI_Magic = nullptr;
-    Item* AI_Item = nullptr;
+    Magic *AI_Magic = nullptr;
+    Item *AI_Item = nullptr;
 
 public:
     int Network_Action;
@@ -220,8 +219,8 @@ public:
     int Network_MoveY;
     int Network_ActionX;
     int Network_ActionY;
-    Magic* Network_Magic = nullptr;
-    Item* Network_Item = nullptr;
+    Magic *Network_Magic = nullptr;
+    Item *Network_Item = nullptr;
 
 public:
     int RealID = -1;
@@ -229,7 +228,7 @@ public:
     bool Competing = false;
 
 public:
-    static Role* getMaxValue() { return &max_role_value_; }
+    static Role *getMaxValue() { return &max_role_value_; }
 
 private:
     static Role max_role_value_;
@@ -243,7 +242,7 @@ struct ItemSave
     int Name1[10];
     char Introduction[60];
     int MagicID, HiddenWeaponEffectID, User, EquipType, ShowIntroduction;
-    int ItemType;    //0剧情，1装备，2秘笈，3药品，4暗器
+    int ItemType; //0剧情，1装备，2秘笈，3药品，4暗器
     int UnKnown5, UnKnown6, UnKnown7;
     int AddHP, AddMaxHP, AddPoison, AddPhysicalPower, ChangeMPType, AddMP, AddMaxMP;
     int AddAttack, AddSpeed, AddDefence, AddMedicine, AddUsePoison, AddDetoxification, AddAntiPoison;
@@ -272,10 +271,10 @@ struct MagicSave
     char Name[20];
     int Unknown[5];
     int SoundID;
-    int MagicType;    //1-拳，2-剑，3-刀，4-特殊
+    int MagicType; //1-拳，2-剑，3-刀，4-特殊
     int EffectID;
-    int HurtType;          //0-普通，1-吸取MP
-    int AttackAreaType;    //0-点，1-线，2-十字，3-面
+    int HurtType;       //0-普通，1-吸取MP
+    int AttackAreaType; //0-点，1-线，2-十字，3-面
     int NeedMP, WithPoison;
     int Attack[10], SelectDistance[10], AttackDistance[10], AddMP[10], HurtMP[10];
 };
@@ -312,7 +311,7 @@ private:
 public:
     MAP_INT X() { return X_; }
     MAP_INT Y() { return Y_; }
-    void setPosition(int x, int y, SubMapInfo* submap_record);
+    void setPosition(int x, int y, SubMapInfo *submap_record);
     void setPic(int pic)
     {
         BeginPic = pic;
@@ -325,48 +324,48 @@ public:
 struct SubMapInfo : public SubMapInfoSave
 {
 public:
-    MAP_INT& LayerData(int layer, int x, int y)
+    MAP_INT &LayerData(int layer, int x, int y)
     {
         return layer_data_[layer][x + y * SUBMAP_COORD_COUNT];
     }
 
-    MAP_INT& Earth(int x, int y)
+    MAP_INT &Earth(int x, int y)
     {
         return LayerData(0, x, y);
     }
 
-    MAP_INT& Building(int x, int y)
+    MAP_INT &Building(int x, int y)
     {
         return LayerData(1, x, y);
     }
 
-    MAP_INT& Decoration(int x, int y)
+    MAP_INT &Decoration(int x, int y)
     {
         return LayerData(2, x, y);
     }
 
-    MAP_INT& EventIndex(int x, int y)
+    MAP_INT &EventIndex(int x, int y)
     {
         return LayerData(3, x, y);
     }
 
-    MAP_INT& BuildingHeight(int x, int y)
+    MAP_INT &BuildingHeight(int x, int y)
     {
         return LayerData(4, x, y);
     }
 
-    MAP_INT& DecorationHeight(int x, int y)
+    MAP_INT &DecorationHeight(int x, int y)
     {
         return LayerData(5, x, y);
     }
 
-    SubMapEvent* Event(int x, int y)
+    SubMapEvent *Event(int x, int y)
     {
         int i = EventIndex(x, y);
         return Event(i);
     }
 
-    SubMapEvent* Event(int i)
+    SubMapEvent *Event(int i)
     {
         if (i < 0 || i >= SUBMAP_EVENT_COUNT)
         {
