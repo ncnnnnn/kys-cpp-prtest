@@ -1,7 +1,0 @@
-Y:/kys-cpp/third/SDL2-2.0.14/build/CMakeFiles/SDL2-static.dir
-Y:/kys-cpp/third/SDL2-2.0.14/build/CMakeFiles/SDL2main.dir
-Y:/kys-cpp/third/SDL2-2.0.14/build/CMakeFiles/INSTALL.dir
-Y:/kys-cpp/third/SDL2-2.0.14/build/CMakeFiles/SDL2.dir
-Y:/kys-cpp/third/SDL2-2.0.14/build/CMakeFiles/uninstall.dir
-Y:/kys-cpp/third/SDL2-2.0.14/build/CMakeFiles/ALL_BUILD.dir
-Y:/kys-cpp/third/SDL2-2.0.14/build/CMakeFiles/ZERO_CHECK.dir
