@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.3.2)
 project(SDL_image C)
-
+include_directories(include ../installw/include)
+link_directories("../installw/lib")
 if (ANDROID)
 
 else()
@@ -9,8 +10,9 @@ endif()
 
 option(SUPPORT_JPG "Support loading JPEG images" ON)
 
-set(PNG_TESTS OFF)
-set(PNG_SHARED OFF)
+# set(PNG_TESTS OFF)
+# set(PNG_SHARED OFF)
+# set(ld-version-script OFF)
 option(SUPPORT_PNG "Support loading PNG images" ON)
 option(SUPPORT_WEBP "Support loading WEBP images" OFF)
 option(BUILD_SHOWIMAGE "Build the showimage sample program" OFF)
@@ -26,19 +28,21 @@ target_compile_definitions(SDL2_image PRIVATE
 		-DLOAD_TGA -DLOAD_XCF -DLOAD_XPM -DLOAD_XV -DLOAD_XPM)
 
 if (SUPPORT_JPG)
+	include_directories(include external/jpeg-9d)
 	target_compile_definitions(SDL2_image PRIVATE -DLOAD_JPG)
 	add_subdirectory(external/jpeg-9d)
-	target_link_libraries(SDL2_image PRIVATE jpeg)
+	target_link_libraries(SDL2_image PRIVATE jpeg9d)
 endif()
 
 if (SUPPORT_PNG)
 	# missing libpng.vers
-	set(HAVE_LD_VERSION_SCRIPT OFF CACHE BOOL "" FORCE)
+	# set(HAVE_LD_VERSION_SCRIPT OFF CACHE BOOL "" FORCE)
+	# set( ld-version-script OFF)
+	# add_subdirectory(external/libpng-1.6.37)
+	# include_directories(external/libpng-1.6.37)
 	target_compile_definitions(SDL2_image PRIVATE -DLOAD_PNG)
 
-	add_subdirectory(external/libpng-1.6.37)
-	include_directories(external/libpng-1.6.37)
-	target_link_libraries(SDL2_image PRIVATE png)
+	target_link_libraries(SDL2_image PRIVATE libpng16)
 endif()
 
 if (SUPPORT_WEBP)
