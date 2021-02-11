@@ -1,7 +1,11 @@
 # project(kys)
 # cmake_minimum_required(VERSION 2.6)
 # cmake_policy(SET CMP0015 OLD)
-
+if (MSVC)
+    # 设置 msvc 输入代码编码格式为 utf-8
+    set(CMAKE_CXX_FLAGS /source-charset:utf-8)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4819")
+endif()
 set(CMAKE_VERBOSE_MAKEFILE on)
 set(CMAKE_CXX_COMPILER $ENV{CXX})
 set(CMAKE_CXX_FLAGS "-O3 -std=c++14 -pthread -DNDEBUG -DUSE_SDL_MIXER_AUDIO")
