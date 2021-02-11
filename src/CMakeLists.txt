@@ -15,6 +15,8 @@ set(CMAKE_CXX_FLAGS "-O3 -std=c++14 -pthread -DNDEBUG -DUSE_SDL_MIXER_AUDIO")
 # include_directories(../include . ../common ../others ../local/include)
 # link_directories(. ../lib)
 include_directories(include ../common ../local/include)
+include_directories(include ../third/installw/include)
+link_directories("../third/installw/lib")
 file(GLOB SRC_LIST
     ./*.cpp
     ../common/convert.cpp

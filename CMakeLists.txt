@@ -3,7 +3,7 @@ project(kys)
 cmake_policy(SET CMP0081 OLD)
 set(CMAKE_VERBOSE_MAKEFILE on)
 
-include_directories(include third/installw/include)
+
 
 # #设置模块的搜索路径
 # set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
