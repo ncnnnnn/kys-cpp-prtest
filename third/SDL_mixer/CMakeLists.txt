@@ -17,7 +17,7 @@ if (ANDROID)
 
     include_directories(include src src/codecs)
 
-    add_library(SDL2_mixer SHARED)
+    add_library(SDL2_mixer STATIC)
     target_compile_options(SDL2_mixer PRIVATE -DMUSIC_WAV)
     target_sources(SDL2_mixer PRIVATE
             src/effect_position.c src/effects_internal.c src/effect_stereoreverse.c
