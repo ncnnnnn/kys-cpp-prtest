@@ -120,13 +120,13 @@ void MainScene::draw()
             if (!isOutLine(ix, iy))
             {
                 //共分3层，地面，表面，建筑，主角包括在建筑中
-#ifndef _DEBUG
+// #ifndef _DEBUG
                 //调试模式下不画出地面，图的数量太多占用CPU很大
                 if (earth_layer_.data(ix, iy).getTexture())
                 {
                     TextureManager::getInstance()->renderTexture(earth_layer_.data(ix, iy).getTexture(), p.x, p.y);
                 }
-#endif
+// #endif
                 if (surface_layer_.data(ix, iy).getTexture())
                 {
                     TextureManager::getInstance()->renderTexture(surface_layer_.data(ix, iy).getTexture(), p.x, p.y);
