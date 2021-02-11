@@ -17,3 +17,5 @@ x64/
 common/*
 common
 include/*
+build
+installw

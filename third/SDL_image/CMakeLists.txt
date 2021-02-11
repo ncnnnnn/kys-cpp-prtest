@@ -8,6 +8,9 @@ else()
 endif()
 
 option(SUPPORT_JPG "Support loading JPEG images" ON)
+
+set(PNG_TESTS OFF)
+set(PNG_SHARED OFF)
 option(SUPPORT_PNG "Support loading PNG images" ON)
 option(SUPPORT_WEBP "Support loading WEBP images" OFF)
 option(BUILD_SHOWIMAGE "Build the showimage sample program" OFF)

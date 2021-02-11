@@ -491,6 +491,8 @@ set(libpng_sources
   ${libpng_mips_sources}
   ${libpng_powerpc_sources}
 )
+if(PNG_TESTS)
+ 
 set(pngtest_sources
   pngtest.c
 )
@@ -500,6 +502,7 @@ set(pngvalid_sources
 set(pngstest_sources
   contrib/libtests/pngstest.c
 )
+
 set(pngunknown_sources
   contrib/libtests/pngunknown.c
 )
@@ -512,7 +515,7 @@ set(pngfix_sources
 set(png_fix_itxt_sources
   contrib/tools/png-fix-itxt.c
 )
-
+endif()
 if(MSVC)
   add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
 endif()
