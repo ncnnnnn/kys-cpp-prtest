@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.8.11)
 project(SDL_mixer C)
-include_directories(include ../installw/include)
-include_directories(include ../installw/include/SDL2)
-link_directories("../installw/lib")
+include_directories(include ../installa/include)
+include_directories(include ../installa/include/SDL2)
+link_directories("../installa/lib")
 set(ANDROID ON)
 if (ANDROID)
 

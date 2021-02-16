@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.10)
 project(kys)
-cmake_policy(SET CMP0081 OLD)
+# cmake_policy(SET CMP0081 OLD)
 set(CMAKE_VERBOSE_MAKEFILE on)
 
 

@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.3.2)
 project(SDL_image C)
-include_directories(include ../installw/include)
-link_directories("../installw/lib")
-if (ANDROID)
 
+if (ANDROID)
+	include_directories(include ../installa/include ../installa/include/SDL2)
+	link_directories("../installa/lib")
 else()
+	include_directories(include ../installw/include)
+	link_directories("../installw/lib")
     find_package(SDL2 REQUIRED)
 endif()
 

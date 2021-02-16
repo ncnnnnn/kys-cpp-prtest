@@ -7,7 +7,9 @@ cmake_minimum_required(VERSION 3.0)
 project(SDL_ttf C)
 
 if (ANDROID)
-
+    include_directories(include ../installa/include)
+    include_directories(include ../installa/include/SDL2)
+    link_directories("../installa/lib")
     option(TTF_WITH_HARFBUZZ "use harfbuzz to improve text shaping" OFF)
 
     add_library(SDL2_ttf SHARED)
