@@ -49,6 +49,9 @@ enum BP_Align
 #define BMASK (0xff)
 #define AMASK (0xff000000)
 
+extern double xscale ;
+extern double yscale ;
+
 //声音类型在其他文件中未使用
 using BP_AudioSpec = SDL_AudioSpec;
 //这里直接使用SDL的事件结构，如果更换底层需重新实现一套相同的

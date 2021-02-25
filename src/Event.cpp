@@ -25,12 +25,12 @@ Event::Event()
     talk_box_->addChild(talk_box_down_, 0, 400);
     menu2_ = std::make_shared<MenuText>();
     menu2_->setStrings({ "確認（Y）", "取消（N）" });
-    menu2_->setPosition(400, 300);
+    menu2_->setPosition(400*xscale, 300*yscale);
     menu2_->setFontSize(24);
     menu2_->setHaveBox(true);
     menu2_->arrange(0, 50, 150, 0);
     text_box_ = std::make_shared<TextBox>();
-    text_box_->setPosition(400, 200);
+    text_box_->setPosition(400*xscale, 200*yscale);
     text_box_->setTextPosition(-20, 100);
 }
 

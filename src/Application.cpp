@@ -7,7 +7,8 @@
 #include "Random.h"
 #include "TextureManager.h"
 #include "TitleScene.h"
-
+double xscale=((double)480)/1024;
+double yscale=((double)320)/640;
 Application::Application()
 {
 }
@@ -19,7 +20,8 @@ Application::~Application()
 int Application::run()
 {
     auto engine = Engine::getInstance();
-    engine->setStartWindowSize(1024, 640);
+    // engine->setStartWindowSize(1024, 640);
+     engine->setStartWindowSize(480, 320);
     engine->init();    //引擎初始化之后才能创建纹理
     engine->createAssistTexture(768, 480);
 
